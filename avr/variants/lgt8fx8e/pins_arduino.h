@@ -29,8 +29,12 @@
 
 static const uint8_t DAC0 = 4;
 static const uint8_t DAC1 = 22;
+
+
 #include "../standard/pins_arduino.h"
+
+#define SWAP_PIN  SWD
+
 #undef NUM_ANALOG_INPUTS
 #define NUM_ANALOG_INPUTS           8
-
 #endif

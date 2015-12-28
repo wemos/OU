@@ -35,6 +35,8 @@ http://arduiniana.org.
 #define _DEBUG 0
 #define _DEBUG_PIN1 11
 #define _DEBUG_PIN2 13
+
+#define PCINT3_vect   _VECTOR(27)
 // 
 // Includes
 // 
@@ -425,6 +427,11 @@ void SoftwareSerial::begin(long speed)
       *digitalPinToPCICR(_receivePin) |= _BV(digitalPinToPCICRbit(_receivePin));
       *digitalPinToPCMSK(_receivePin) |= _BV(digitalPinToPCMSKbit(_receivePin));
     }
+    else//PE4 for OU
+    {
+      PCICR|=_BV(PCIE3);
+      PCMSK3|=_BV(4);
+    }
     tunedDelay(_tx_delay); // if we were low this establishes the end
   }
 
@@ -440,6 +447,8 @@ void SoftwareSerial::end()
 {
   if (digitalPinToPCMSK(_receivePin))
     *digitalPinToPCMSK(_receivePin) &= ~_BV(digitalPinToPCMSKbit(_receivePin));
+  else//PE4 for OU
+    PCMSK3&=~_BV(4);
 }
 
 

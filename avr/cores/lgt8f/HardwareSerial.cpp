@@ -484,13 +484,25 @@ HardwareSerial::operator bool() {
 
 void HardwareSerial::swap()
 {
-  volatile uint8_t val;
+  
+  #ifdef SWAP_PIN
+  uint8_t val;
+  pinMode(SWAP_PIN,OUTPUT);
+  val=digitalRead(SWAP_PIN);
+  if(val==HIGH)
+    digitalWrite(SWAP_PIN,LOW);
+  else
+    digitalWrite(SWAP_PIN,HIGH);
+/*  volatile uint8_t val;
   val=PINE;
 
   if(val&(1<<2))
     PORTE&=~(1<<2);
   else
-    PORTE|=(1<<2);
+    PORTE|=(1<<2);*/
+  #else
+    ;
+  #endif
 }
 // Preinstantiate Objects //////////////////////////////////////////////////////
 
