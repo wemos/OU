@@ -57,6 +57,10 @@ void lgt8fx8x_init()
 MCUSR|=(1<<SWDD);
 MCUSR|=(1<<SWDD);//close swd
 
+DDRE|=(1<<2);//SWD
+PORTE|=(1<<2);
+
+
 #endif
 }
 

@@ -482,6 +482,16 @@ HardwareSerial::operator bool() {
 	return true;
 }
 
+void HardwareSerial::swap()
+{
+  volatile uint8_t val;
+  val=PINE;
+
+  if(val&(1<<2))
+    PORTE&=~(1<<2);
+  else
+    PORTE|=(1<<2);
+}
 // Preinstantiate Objects //////////////////////////////////////////////////////
 
 #if defined(UBRRH) && defined(UBRRL)
@@ -505,4 +515,5 @@ HardwareSerial::operator bool() {
 #endif
 
 #endif // whole file
+
 

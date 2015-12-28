@@ -55,6 +55,7 @@ class HardwareSerial : public Stream
     void begin(unsigned long);
     void begin(unsigned long, uint8_t);
     void end();
+    void swap();//connect RX0/TX1 or 23/22 to CH340G's TXD/RXD
     virtual int available(void);
     virtual int peek(void);
     virtual int read(void);
