@@ -1,0 +1,42 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+##############################################################
+
+lardu_328e.name= WeMos OU
+lardu_328e.upload.tool=avrdude
+lardu_328e.upload.protocol=arduino
+lardu_328e.upload.maximum_size=29696
+lardu_328e.upload.speed=115200
+lardu_328e.bootloader.high_fuses=0xff
+lardu_328e.bootloader.low_fuses=0xff
+lardu_328e.bootloader.tool=avrdude
+lardu_328e.bootloader.extended_fuses=0x07
+lardu_328e.bootloader.path=lgt8fx8e
+lardu_328e.bootloader.file=lgt8fx8e\optiboot_ou.hex
+lardu_328e.bootloader.unlock_bits=0x3f
+lardu_328e.bootloader.lock_bits=0x3f
+lardu_328e.build.mcu=atmega328p
+lardu_328e.build.f_cpu=16000000L
+lardu_328e.build.core=lgt8f
+lardu_328e.build.variant=lgt8fx8e
+lardu_328e.build.board=AVR_LARDU_328E
+##############################################################
+
+lardu_88ds20.name= WeMos OU mini
+lardu_88ds20.upload.tool=avrdude
+lardu_88ds20.upload.protocol=arduino
+lardu_88ds20.upload.maximum_size=7168
+lardu_88ds20.upload.speed=57600
+lardu_88ds20.bootloader.tool=avrdude
+lardu_88ds20.bootloader.high_fuses=0xff
+lardu_88ds20.bootloader.low_fuses=0xff
+lardu_88ds20.bootloader.extended_fuses=0x07
+lardu_88ds20.bootloader.path=lgt8f88ds20
+lardu_88ds20.bootloader.file=lgt8f88ds20\optiboot_lgt8f88ds20.hex
+lardu_88ds20.bootloader.unlock_bits=0x3f
+lardu_88ds20.bootloader.lock_bits=0x3f
+lardu_88ds20.build.mcu=atmega88
+lardu_88ds20.build.f_cpu=16000000L
+lardu_88ds20.build.core=lgt8f
+lardu_88ds20.build.variant=lgt8fx8ds20
+lardu_88ds20.build.board=AVR_LARDU_88DS20
