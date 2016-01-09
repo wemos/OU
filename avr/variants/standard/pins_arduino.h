@@ -56,16 +56,16 @@ static const uint8_t A2 = 16;
 static const uint8_t A3 = 17;
 static const uint8_t A4 = 18;
 static const uint8_t A5 = 19;
-static const uint8_t A6 = 20;
-static const uint8_t A7 = 21;
+static const uint8_t A6 = 21;
+static const uint8_t A7 = 23;
 
-static const uint8_t SWC = 24;
-static const uint8_t SWD = 25;
+static const uint8_t SWC = 20;
+static const uint8_t SWD = 22;
 
-#define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 21) ? (&PCICR) : ((uint8_t *)0))
-#define digitalPinToPCICRbit(p) (((p) <= 7) ? 2 : (((p) <= 13) ? 0 : 1))
-#define digitalPinToPCMSK(p)    (((p) <= 7) ? (&PCMSK2) : (((p) <= 13) ? (&PCMSK0) : (((p) <= 21) ? (&PCMSK1) : ((uint8_t *)0))))
-#define digitalPinToPCMSKbit(p) (((p) <= 7) ? (p) : (((p) <= 13) ? ((p) - 8) : ((p) - 14)))
+#define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 25) ? (&PCICR) : ((uint8_t *)0))
+#define digitalPinToPCICRbit(p) (    ((p) <= 7) ? 2 : (   ((p) <= 13) ? 0 : ((p)<=19)?1:3     )          )
+#define digitalPinToPCMSK(p)    (      ((p) <= 7) ? (&PCMSK2) : (((p) <= 13) ? (&PCMSK0) : (((p) <= 19) ? (&PCMSK1) :   ( ((p)<=25)?(&PCMSK3): ((uint8_t *)0))    ))                 )
+#define digitalPinToPCMSKbit(p) (    ((p) <= 7) ? (p) : (    ((p) <= 13) ? ((p) - 8) : (  ((p)<=19)?((p) - 14):((p)-20)   )    )     )
 
 #ifdef ARDUINO_MAIN
 
@@ -146,12 +146,12 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
 	PC,
 	PC,
 	PC,//19
-	PE,//20 - PE1
-	PE,//21 - PE3
-	PE,//22 - PE5
-	PE,//23 - PE4
-	PE,//24 - PE0 SWC
-	PE,//25 - PE2 SWD
+	PE,//20 - PE0
+	PE,//21 - PE1
+	PE,//22 - PE2
+	PE,//23 - PE3
+	PE,//24 - PE4 
+	PE,//25 - PE5
 
 };
 
@@ -176,12 +176,12 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 	_BV(3),
 	_BV(4),
 	_BV(5),//19
-	_BV(1),//20 - PE1
-	_BV(3),//21 - PE3
-	_BV(5),//22 - PE5
-	_BV(4),//23 - PE4
-	_BV(0),//24 - PE0 SWC
-	_BV(2),//25 - PE2 SWD
+	_BV(0),//20 - PE0 SWC
+	_BV(1),//21 - PE1 A6
+	_BV(2),//22 - PE2 SWD
+	_BV(3),//23 - PE3 A7
+	_BV(4),//24 - PE4 
+	_BV(5),//25 - PE5 DAO1
 };
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
@@ -227,7 +227,10 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	NOT_ON_TIMER,
 	NOT_ON_TIMER,//21
 #if defined(__LGT8FX8E__)
-	LGTDAO1,
+	NOT_ON_TIMER,//22
+	NOT_ON_TIMER,//23
+	NOT_ON_TIMER,//24
+	LGTDAO1,//25
 #endif
 };
 

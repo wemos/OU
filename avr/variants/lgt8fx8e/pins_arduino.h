@@ -28,14 +28,14 @@
 #include "lgtx8e.h"
 
 static const uint8_t DAC0 = 4;
-static const uint8_t DAC1 = 22;
+static const uint8_t DAC1 = 25;
 
 
 #include "../standard/pins_arduino.h"
 
 #define SWAP_PIN  SWD
-#define SRX 23
-#define STX 22
+#define SRX 24
+#define STX 25
 
 #undef NUM_ANALOG_INPUTS
 #define NUM_ANALOG_INPUTS           8

@@ -57,7 +57,11 @@ int analogRead(uint8_t pin)
 #elif defined(analogPinToChannel) && (defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__))
 	pin = analogPinToChannel(pin);
 #else
-	if (pin >= 14) pin -= 14; // allow for channel or pin numbers
+	if (pin >= 14 && pin <= 19) pin -= 14;
+	else if(pin== A6) pin=6;
+	else if(pin==A7) pin=7;
+
+	//if (pin >= 14) pin -= 14; // allow for channel or pin numbers
 #endif
 
 #if defined(__AVR_ATmega32U4__)
