@@ -218,14 +218,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 #endif
 	NOT_ON_TIMER,
 	NOT_ON_TIMER,
-	NOT_ON_TIMER,
-	NOT_ON_TIMER, /* 14 - port C */
-	NOT_ON_TIMER,
-	NOT_ON_TIMER,
+	NOT_ON_TIMER,/* 14 - port C */
+	NOT_ON_TIMER, 
 	NOT_ON_TIMER,
 	NOT_ON_TIMER,
 	NOT_ON_TIMER,
 	NOT_ON_TIMER,
+	NOT_ON_TIMER,
+	NOT_ON_TIMER,//21
 #if defined(__LGT8FX8E__)
 	LGTDAO1,
 #endif
