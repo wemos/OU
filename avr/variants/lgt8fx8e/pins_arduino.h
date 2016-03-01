@@ -35,7 +35,7 @@ static const uint8_t DAC1 = 25;
 
 #define SWAP_PIN  SWD
 #define SRX 24
-#define STX 25
+#define STX 20
 
 #undef NUM_ANALOG_INPUTS
 #define NUM_ANALOG_INPUTS           8
